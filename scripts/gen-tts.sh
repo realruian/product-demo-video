@@ -6,7 +6,7 @@
 #   3) bash gen-tts.sh
 #   4) 按打印的时长设 PromoVideo 的 SCENE_FRAMES = round((dur+0.4)*30)，
 #      每句加 <Sequence from={STARTS[i]+2}><Audio src=.../></Sequence>
-# 注意：别用 macOS `say`（机械音，被嫌弃过）。gpt-4o-mini-tts 真人级且能 prompt 控语气。
+# 注意：别用 macOS `say`（机械音，质量差）。gpt-4o-mini-tts 真人级且能 prompt 控语气。
 set -e
 KEY=$(cat /tmp/tts_key)
 BASE="https://aihubmix.com/v1/audio/speech"   # OpenAI 官方: https://api.openai.com/v1/audio/speech
