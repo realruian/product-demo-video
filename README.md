@@ -5,6 +5,12 @@
 > 一个 Claude Code 技能：把真实 web 产品的页面，自动做成有调性的产品演示短片。
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Claude%20Code-Skill-d97757?style=flat-square" alt="Claude Code Skill" />
+  <img src="https://img.shields.io/badge/Remotion-video-0b84f3?style=flat-square" alt="Remotion" />
+  <img src="https://img.shields.io/badge/license-MIT-3da639?style=flat-square" alt="MIT License" />
+</p>
+
+<p align="center">
   <img src="assets/demo.gif" width="300" alt="demo" />
 </p>
 

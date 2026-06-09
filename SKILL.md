@@ -49,7 +49,7 @@ metadata:
 有些页面截不到真实图（实时语音面试间 headless 无麦克风、报告页依赖后端生成、数据缺失）。**不要凭想象画**——
 1. **去读真实组件代码**（`components/.../XxxLayout.tsx` 等），看清真实的布局/元素/数据结构。
 2. 按真实结构在 Remotion 里 1:1 重建成一个 React 组件，渲染进窗口内容区（尺寸 = 窗口内容区 W×H）。
-3. 范例见 [templates/screens/InterviewScreen.tsx](templates/screens/InterviewScreen.tsx)（实时面试间）、[templates/screens/ReportScreen.tsx](templates/screens/ReportScreen.tsx)（评估报告）——它们是「照真实代码重建」的样板，换产品时照搬手法、重写内容。
+3. 范例见 [templates/screens/InterviewScreen.tsx](templates/screens/InterviewScreen.tsx)（会话型界面）、[templates/screens/ReportScreen.tsx](templates/screens/ReportScreen.tsx)（报告型界面）——它们是「照真实代码重建」的中性样板，换产品时照搬手法、重写成你产品的真实内容。
 
 ### 阶段 4 — 组装演示片
 用 [templates/PromoVideo.tsx](templates/PromoVideo.tsx) 作骨架（浏览器 mockup + 场景 crossfade + Ken Burns + 字幕 + Outro + 音频），[templates/PromoRoot.tsx](templates/PromoRoot.tsx) 注册 composition。

@@ -13,16 +13,17 @@ BASE="https://aihubmix.com/v1/audio/speech"   # OpenAI 官方: https://api.opena
 MODEL="gpt-4o-mini-tts"                         # 备选 tts-1-hd
 VOICE="coral"                                   # 女声: coral/nova/shimmer/sage  男声: ash/echo/onyx
 INSTR="温暖亲和的中文女声，像产品讲解，语速自然偏快、干练利落，吐字清晰，不要拖沓不要机械"
-OUT_DIR="public/lollipop/vo"                    # ← 改成你的 brand 目录
+OUT_DIR="public/app/vo"                         # ← 改成你的 brand 目录
 SPEEDUP="1.15"                                  # gpt-4o 偏慢，轻微提速（atempo 不变调）；不需要设 1.0
 
+# 每句对应一个场景，最后一句配收尾。文案让 Claude 据你的产品自动生成，下面只是占位。
 VO=(
-"一句话，定制你的专属模拟面试"
-"海量真实岗位，对口直接开练"
-"简历不会写？AI 教练帮你逐段打磨"
-"真人级实时语音面试，开口就练"
-"面试结束，深度评估报告即时生成"
-"Lollipop，你的 AI 面试官，全天候在线"
+"第一句：一句话说清产品解决什么问题"
+"第二句：第二个核心功能的价值点"
+"第三句：第三个功能，继续推进"
+"第四句：差异化亮点 / 体验"
+"第五句：用户能得到的结果或收益"
+"收尾：产品名，一句话价值主张"
 )
 
 mkdir -p "$OUT_DIR"
