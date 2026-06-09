@@ -1,15 +1,12 @@
 /**
- * 产品演示片通用骨架。换产品时改的地方都标了「← 改这里」。
+ * 产品演示片通用骨架。下面的占位内容（BRAND / SCENES 文案 / SLOGAN / 地址栏）
+ * 都由 Claude **读你的项目和组件代码后自动生成、自动填充**——它会：
+ *   - 读 CLAUDE.md / README / 路由，理解每个页面是干什么的
+ *   - 据此为每个场景自动写 title / sub 字幕文案 与 地址栏
+ *   - 自动在 public 里定位你项目的真实矢量 logo
+ * 这里留的是空骨架 + 一份中性占位示例，方便你照着改 / 让 Claude 自动覆盖。
  *
- * 用法：
- * 1. 把真实页面截图放进 public/<brand>/，把 SCENES 里 type:'image' 的 src 指过去。
- * 2. 截不到的页面 → 照真实组件代码写一个界面组件（见 templates/screens/ 范例），
- *    在 SCREEN_REGISTRY 里登记一个自定义 type。
- * 3. BGM 放 public/<brand>/bgm.mp3（用 scripts/get-bgm.sh 下载）。
- * 4. 调 CANVAS / SCENE_FRAMES / 文案 / logo。
- * 5. 注册到 PromoRoot.tsx，durationInFrames = TOTAL。
- *
- * 调性规范见 SKILL.md「Tone」与 reference/tone.md，务必遵守。
+ * 手动改时的位置都标了「← 改这里」。调性规范见 SKILL.md「Tone」与 reference/tone.md。
  */
 import React from "react";
 import {
@@ -30,10 +27,10 @@ import { ReportScreen } from "./screens/ReportScreen";
 // ── 全局调性（默认极简，遵守目标项目 DESIGN.md）──────────────
 const FONT = `"PingFang SC", "Heiti SC", sans-serif`; // 中英统一 PingFang
 const EASE = Easing.bezier(0.16, 1, 0.3, 1);
-const BRAND = "lollipop"; // ← 改这里：public 下的素材子目录名
-const LOGO = `${BRAND}/logo.svg`; // ← 项目真实矢量字标
+const BRAND = "app"; // ← public 下的素材子目录名（Claude 按你的项目自动定）
+const LOGO = `${BRAND}/logo.svg`; // ← 你项目的真实矢量 logo（Claude 自动定位）
 const BGM = `${BRAND}/bgm.mp3`; // ← 免版权背景音乐
-const SLOGAN = "AI 面试官 · 7×24 小时在线"; // ← 收尾 slogan
+const SLOGAN = "你的产品 · 一句话价值主张"; // ← 收尾 slogan（Claude 据产品自动生成）
 
 // ── 画布（竖版 1280×1706 默认；方版 1080×1080；横版 1920×1080）──
 const CANVAS = { w: 1280, h: 1706 };
@@ -56,12 +53,14 @@ type Scene = {
   title: string; // 底部大字标题
   sub: string; // 底部副标题
 };
+// 占位示例：每段画面 + 字幕 + 地址栏。title/sub 由 Claude 读懂该页面后自动生成。
+// type:'image' 用真实截图；其余 type 在 SCREEN_REGISTRY 登记的代码重建界面。
 const SCENES: Scene[] = [
-  { type: "image", src: `${BRAND}/hero.png`, addr: "lollipop.ai/jobs", title: "一句话，定制专属模拟面试", sub: "说出目标岗位、面试官与难度，AI 立刻开面" },
-  { type: "image", src: `${BRAND}/grid.png`, addr: "lollipop.ai/jobs", title: "海量真实岗位，对口直接练", sub: "覆盖大厂与热门 AI 方向，一键挑岗" },
-  { type: "image", src: `${BRAND}/resume.png`, addr: "lollipop.ai/resume", title: "简历不会写？AI 教练帮你改", sub: "逐段打磨经历，一键润色与查错" },
-  { type: "interview", addr: "lollipop.ai/interview", title: "真人级实时语音面试", sub: "像真面试一样开口练，AI 实时追问" },
-  { type: "report", addr: "lollipop.ai/report", title: "面试结束，深度评估报告", sub: "本场结果、好感度与逐题拆解，一目了然" },
+  { type: "image", src: `${BRAND}/screen-1.png`, addr: "yourapp.com/page-1", title: "第一个核心功能", sub: "一句话说清它解决什么问题" },
+  { type: "image", src: `${BRAND}/screen-2.png`, addr: "yourapp.com/page-2", title: "第二个核心功能", sub: "再补一句价值点" },
+  { type: "image", src: `${BRAND}/screen-3.png`, addr: "yourapp.com/page-3", title: "第三个核心功能", sub: "继续往下推进叙事" },
+  { type: "interview", addr: "yourapp.com/live", title: "会话型页面（代码重建）", sub: "截不到的实时页面，照真实组件重建" },
+  { type: "report", addr: "yourapp.com/report", title: "报告型页面（代码重建）", sub: "依赖后端的结果页，照真实组件重建" },
 ];
 
 // ── 节奏：每段帧数（默认统一 60=2s；按内容可不等长）────────────
