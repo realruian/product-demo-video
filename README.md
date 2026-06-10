@@ -51,13 +51,19 @@
 
 ## 安装
 
-把仓库克隆进 Claude Code 的 skills 目录：
+一行装好（推荐）：
+
+```bash
+npx skills add realruian/product-demo-video
+```
+
+或手动克隆进 Claude Code 的 skills 目录：
 
 ```bash
 git clone https://github.com/realruian/product-demo-video.git ~/.claude/skills/product-demo-video
 ```
 
-重启 Claude Code，它会自动出现在技能列表里。
+装好后重启 Claude Code，它会自动出现在技能列表里。
 
 ### 依赖
 
